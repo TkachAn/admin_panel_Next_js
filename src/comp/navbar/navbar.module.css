@@ -1,0 +1,30 @@
+/* src/components/Navbar.module.css */
+
+.navList {
+  display: flex;
+  gap: 1rem;
+  list-style: none; 
+}
+
+.navItem {
+  padding: 10px;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgb(250, 250, 250);
+    padding: 0 5rem;
+  }
+
+  .navList {
+    padding: 0 20px;
+    flex-direction: column;
+    /*width: 100%;
+    align-items: start;*/
+  }
+}

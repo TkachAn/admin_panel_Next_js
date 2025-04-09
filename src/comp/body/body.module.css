@@ -1,0 +1,101 @@
+/*src/comp/body/body.module.css*/
+/*Page*/
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Занимает всю высоту экрана */
+  width: 100%;
+}
+
+.line_up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/*Main*/
+.main {
+  flex-grow: 1;
+  padding: 20px 0px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem auto;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+/*
+/*Container*/
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Адаптивные стили (медиа-запросы) */
+@media (min-width: 480px) {
+  .container {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.header {
+  position: relative;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирование по горизонтали */
+}
+
+.line_up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.hamburgerIcon span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: black;
+  margin: 6px 0;
+  transition: 0.3s;
+}

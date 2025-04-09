@@ -1,0 +1,38 @@
+/* src/components/Logotipe.module.css */
+.logotipe {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-color: rgb(255, 0, 0);
+    /*background-color: crimson;*/
+    border-style: groove;
+  }
+
+  .logoImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем по обеим осям */
+    height: 30px;
+    width: 15px;
+  }
+  .logoName {
+    position: absolute;
+    bottom: 50%;
+    left: 50px;
+    transform: translate(20%, 50%); /* Центрируем по обеим осям */
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: cornflowerblue;
+  }
+
+  .logoTo {
+    position: absolute;
+    bottom: 50%;
+    left: 50px;
+    transform: translate(50%, 50%); /* Центрируем по обеим осям */
+    font-size: 1.0rem;
+    font-weight: bold;
+    color:blue
+  }

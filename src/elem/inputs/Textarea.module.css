@@ -1,0 +1,37 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .label {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  .textarea {
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+    outline: none;
+  }
+  
+  .normal .textarea {
+    border-color: #ccc;
+  }
+  
+  .accent .textarea {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  }
+  
+  .blocked .textarea {
+    border-color: #aaa;
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  }
+  

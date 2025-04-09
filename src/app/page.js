@@ -1,95 +1,132 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+//src/app/page.jx
+"use client";
+import { useSession } from 'next-auth/react';
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Page from "@/comp/body/page";
+import Main from "@/comp/body/main";
 
-export default function Home() {
+import Header from "@/comp/body/header";
+import Footer from "@/comp/body/footer";
+import Home from "@/comp/pages/home";
+
+export default function MainPage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    // Если статус загрузки, ничего не делаем
+    if (status === 'loading') {
+      return;
+    }
+
+    // Если пользователь не авторизован, перенаправляем на страницу входа
+    if (status === 'unauthenticated') {
+      router.push('/auth');
+    }
+    // Если пользователь авторизован, ничего не делаем, рендерится HomePage
+  }, [session, status, router]);
+
+  // Пока идет загрузка сессии, показываем сообщение
+  if (status === 'loading') {
+    return (
+      <Page>
+        <Main>
+          <p>Проверка авторизации...</p>
+        </Main>
+      </Page>
+    );
+  }
+
+  // Если пользователь авторизован, рендерим HomePage
+  if (status === 'authenticated') {
+    return (
+      <Page>
+        <Header />
+        <Main title="Главная">
+          <Home />
+        </Main>
+        <Footer>admin@i.ua</Footer>
+      </Page>
+    );
+  }
+
+  // Если пользователь не авторизован (идет редирект), ничего не рендерим
+  return null;
+}
+
+
+/*
+export default function MainPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/auth"); // ✅ Автоматически отправляет на страницу входа
+  }, []);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <Page>
+      <Main>
+        <p>Перенаправление...</p>;
+      </Main>
+    </Page>
   );
 }
+*/
+/*
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
+import Page from '@/components/Page'; // Предполагаю, что у вас есть такие компоненты
+import Main from '@/components/Main';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import HomePage from '@/components/HomePage';
+
+export default function MainPage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    // Если статус загрузки, ничего не делаем
+    if (status === 'loading') {
+      return;
+    }
+
+    // Если пользователь не авторизован, перенаправляем на страницу входа
+    if (status === 'unauthenticated') {
+      router.push('/auth');
+    }
+    // Если пользователь авторизован, ничего не делаем, рендерится HomePage
+  }, [session, status, router]);
+
+  // Пока идет загрузка сессии, показываем сообщение
+  if (status === 'loading') {
+    return (
+      <Page>
+        <Main>
+          <p>Проверка авторизации...</p>
+        </Main>
+      </Page>
+    );
+  }
+
+  // Если пользователь авторизован, рендерим HomePage
+  if (status === 'authenticated') {
+    return (
+      <Page>
+        <Header />
+        <Main title="Главная">
+          <HomePage />
+        </Main>
+        <Footer>admin@i.ua</Footer>
+      </Page>
+    );
+  }
+
+  // Если пользователь не авторизован (идет редирект), ничего не рендерим
+  return null;
+}
+
+*/
