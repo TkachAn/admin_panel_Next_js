@@ -170,3 +170,8 @@
 .deleteButton:hover {
   background-color: #d32f2f;
 }
+
+.icons{
+  display: flex;
+  justify-content: space-between;
+}

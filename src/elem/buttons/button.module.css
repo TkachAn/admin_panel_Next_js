@@ -1,0 +1,86 @@
+/* button.module.css */
+.iconButton {
+    background: transparent;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: #444;
+    transition: color 0.2s;
+  }
+  
+  .iconButton:hover {
+    color: crimson;
+  }
+  
+  .actionButton {
+    padding: 8px 16px;
+    background-color: #4682b4;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .addButton {
+    background-color: #28a745;
+  }
+  
+  .deleteButton {
+    background-color: #dc3545;
+  }
+  
+  .editButton {
+    background-color: #ffc107;
+  }
+
+  /* button.module.css */
+
+.baseButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.normal {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.normal:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.accent {
+  background-color: #0070f3;
+  color: #fff;
+}
+
+.accent:hover:not(:disabled) {
+  background-color: #0057c2;
+}
+
+.blocked {
+  background-color: #dddddd;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.iconButton {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.2s ease;
+}
+
+.iconButton:hover:not(:disabled) {
+  color: crimson;
+}
+
+  

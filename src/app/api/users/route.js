@@ -1,15 +1,31 @@
 //src/app/api/users/route.js
-
-
-
 import { NextResponse } from 'next/server';
 import query from '@/app/lib/db'; // Обёртка для подключения к БД
 import bcrypt from 'bcrypt';
 
+// Функция для форматирования даты в "ДД.ММ.ГГГГ"
+function formatDate(dateString) {
+  if (!dateString) {
+    return null; // Или какое-то другое значение по умолчанию
+  }
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы в JS с 0
+  const year = date.getFullYear();
+  return `${day}.${month}.${year}`;
+}
+
 export async function GET() {
   try {
     const users = await query('SELECT id, name, email, role, note, createAt FROM users');
-    return NextResponse.json(users);
+
+    // Форматируем дату createAt для каждого пользователя
+    const formattedUsers = users.map(user => ({
+      ...user,
+      createAt: formatDate(user.createAt),
+    }));
+
+    return NextResponse.json(formattedUsers);
   } catch (error) {
     console.error('Ошибка при подключении к базе:', error);
     return NextResponse.json({ error: 'Ошибка подключения к базе данных' }, { status: 500 });
@@ -43,6 +59,7 @@ export async function POST(request) {
   }
 }
 // НОВЫЙ ОБРАБОТЧИК ДЛЯ DELETE (удаление пользователя по ID)
+/*
 export async function DELETE(request) {
   // Получаем ID пользователя из URL
   const parts = request.url.split('/');
@@ -64,7 +81,7 @@ export async function DELETE(request) {
     console.error(`Ошибка при удалении пользователя с ID ${userId}:`, error);
     return NextResponse.json({ error: 'Не удалось удалить пользователя' }, { status: 500 });
   }
-}
+}*/
 
 /*
 
