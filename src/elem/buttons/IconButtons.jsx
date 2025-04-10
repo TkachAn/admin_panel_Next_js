@@ -33,10 +33,20 @@ const UserAddIconButton = ({ onClick, title = "Добавить пользова
   </button>
 );
 
-const UserEditIconButton = ({ onClick, title = "Редактировать пользователя" }) => (
+const UserEditIconButton = ({
+  onClick,
+  title = "Редактировать пользователя",
+}) => (
   <button onClick={onClick} className={styles.iconButton} title={title}>
     <UserPen size={24} />
   </button>
 );
 
-export {CloseIconButton, DeleteIconButton, EditIconButton, AddIconButton, UserAddIconButton, UserEditIconButton};
+export {
+  CloseIconButton,
+  DeleteIconButton,
+  EditIconButton,
+  AddIconButton,
+  UserAddIconButton,
+  UserEditIconButton,
+};

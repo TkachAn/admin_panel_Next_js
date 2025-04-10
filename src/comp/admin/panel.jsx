@@ -5,7 +5,10 @@ import { NormButton } from "@/elem/button";
 import styles from "./panel.module.css";
 import AddUser from "./modal/winsdow";
 import ConfirmModal from "./modal/confirm";
-import { DeleteButton, EditButton, AddUserButton } from "@/elem/Buttuns";
+import { AddUserButton } from "@/elem/Buttuns";
+import{EditIconButton, DeleteIconButton} from '@/elem/buttons/IconButtons'
+import ErrorModal from "./modal/errorDel";
+
 
 export default function AdminAddUserPanel() {
   const [users, setUsers] = useState([]);
@@ -13,6 +16,7 @@ export default function AdminAddUserPanel() {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
   const [userToEdit, setUserToEdit] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null); // Состояние для сообщения об ошибке
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -67,15 +71,23 @@ export default function AdminAddUserPanel() {
 
   const handleConfirmDelete = async () => {
     if (userToDelete !== null) {
+      console.log('Отправляю DELETE запрос для ID:', userToDelete); 
       try {
-        await fetch(`/api/users/${userToDelete}`, { method: "DELETE" });
-        const updatedUsers = await fetch("/api/users").then((res) =>
-          res.json()
-        );
-        setUsers(updatedUsers);
+        const response = await fetch(`/api/users/${userToDelete}`, { method: "DELETE" });
+        if (response.ok) {
+          const updatedUsers = await fetch("/api/users").then((res) => res.json());
+          setUsers(updatedUsers);
+        } else if (response.status === 403) {
+          // Обрабатываем ошибку "нельзя удалить самого себя"
+          const errorData = await response.json();
+          setErrorMessage(errorData.error);
+        } else {
+          console.error("Ошибка при удалении пользователя:", response.status);
+          // Обработка других ошибок
+        }
       } catch (error) {
         console.error("Ошибка при удалении пользователя:", error);
-        // Можно добавить обработку ошибок (например, отображение уведомления)
+        setErrorMessage("Произошла ошибка при удалении пользователя.");
       } finally {
         setConfirmOpen(false);
         setUserToDelete(null);
@@ -101,7 +113,9 @@ export default function AdminAddUserPanel() {
     });
     setIsOpen(true);
   };
-
+  const closeErrorModal = () => {
+    setErrorMessage(null);
+  };
   return (
     <div className={styles.panelContainer}>
       <div className={styles.tableTitle}>
@@ -134,8 +148,8 @@ export default function AdminAddUserPanel() {
               <td className={styles.tableCell}>{user.createAt}</td>
               <td className={styles.tableCell}>
                 <div className={styles.icons}>
-                  <EditButton onClick={() => handleEditUser(user)} />
-                  <DeleteButton onClick={() => handleDeleteUser(user.id)} />
+                  <EditIconButton onClick={() => handleEditUser(user)} />
+                  <DeleteIconButton onClick={() => handleDeleteUser(user.id)} />
                 </div>
               </td>
             </tr>
@@ -189,6 +203,7 @@ export default function AdminAddUserPanel() {
         onConfirm={handleConfirmDelete}
         message={`Вы уверены, что хотите удалить пользователя с ID: ${userToDelete}?`}
       />
+      {errorMessage &&(<ErrorModal message={errorMessage} onClose={closeErrorModal}/>)}
     </div>
   );
 }
