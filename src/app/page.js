@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Page from "@/comp/body/page";
 import Main from "@/comp/body/main";
-
 import Header from "@/comp/body/header";
 import Footer from "@/comp/body/footer";
 import Home from "@/comp/pages/home";

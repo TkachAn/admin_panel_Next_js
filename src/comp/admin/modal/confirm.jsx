@@ -1,8 +1,9 @@
 // comp/admin/modal/ConfirmModal.jsx
 "use client";
 import { Dialog } from "@headlessui/react";
-import { NormButton } from "@/elem/button";
+
 import styles from "./styles.module.css"; // Создайте этот файл
+import { NormButton } from "@/elem/buttons/buttons";
 
 export default function ConfirmModal({ isOpen, onClose, onConfirm, message }) {
   return (

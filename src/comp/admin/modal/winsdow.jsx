@@ -5,8 +5,9 @@ import { Dialog } from "@headlessui/react";
 import { EmailInput, PassInput } from "@/elem/inputs";
 import { TextInput } from "@/elem/inputs/TextInput";
 import { Textarea } from "@/elem/inputs/Textarea";
-import { NormButton } from "@/elem/button";
+//import { NormButton } from "@/elem/button";
 import styles from "./styles.module.css";
+import { NormButton } from "@/elem/buttons/buttons";
 
 export default function AddUser({
   isOpen,
@@ -57,6 +58,7 @@ export default function AddUser({
                 Отмена
               </NormButton>
               <NormButton type="submit">Сохранить</NormButton>
+              
             </div>
           </form>
         </Dialog.Panel>

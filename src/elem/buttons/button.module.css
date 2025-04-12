@@ -1,17 +1,5 @@
 /* button.module.css */
-.iconButton {
-    background: transparent;
-    border: none;
-    padding: 4px;
-    cursor: pointer;
-    color: #444;
-    transition: color 0.2s;
-  }
-  
-  .iconButton:hover {
-    color: crimson;
-  }
-  
+
   .actionButton {
     padding: 8px 16px;
     background-color: #4682b4;
@@ -70,12 +58,27 @@
   cursor: not-allowed;
 }
 
+
 .iconButton {
   background: transparent;
   border: none;
   padding: 4px;
   cursor: pointer;
-  color: #444;
+  /*color: #444;*/
+  transition: color 0.2s;
+}
+
+.iconButton:hover {
+  color: crimson;
+}
+
+
+.iconButton {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  /*color: #444;*/
   transition: color 0.2s ease;
 }
 

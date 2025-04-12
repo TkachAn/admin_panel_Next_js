@@ -98,7 +98,12 @@
   align-self: center;
   justify-content: space-between;
 }
-
+.tableTitleBox{
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
 
 /* panel.module.css */
 
@@ -150,7 +155,12 @@
     display: block; /* Показываем карточки на мобильных устройствах */
   }
 }
-
+.cardButtonItem{
+  padding: 5px;
+  border-top: 1px solid grey; /* Вот и наша верхняя полоса! */
+  display: flex;
+  justify-content:space-evenly;
+}
 
 .tableHeaderCell.actions,
 .tableCell.actions {

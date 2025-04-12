@@ -1,13 +1,15 @@
 // comp/admin/panel.jsx
 "use client";
 import { useEffect, useState } from "react";
-import { NormButton } from "@/elem/button";
+
 import styles from "./panel.module.css";
 import AddUser from "./modal/winsdow";
 import ConfirmModal from "./modal/confirm";
-import { AddUserButton } from "@/elem/Buttuns";
-import{EditIconButton, DeleteIconButton} from '@/elem/buttons/IconButtons'
+
+import{EditIconButton, DeleteIconButton, AddIconButton, UserAddIconButton} from '@/elem/buttons/IconButtons'
 import ErrorModal from "./modal/errorDel";
+import { X, Trash, Pencil, Plus, UserPlus, UserPen } from "lucide-react";
+import { NormButton } from "@/elem/buttons/buttons";
 
 
 export default function AdminAddUserPanel() {
@@ -119,11 +121,16 @@ export default function AdminAddUserPanel() {
   return (
     <div className={styles.panelContainer}>
       <div className={styles.tableTitle}>
-        <h2 className={styles.panelTitle}>Пользователи</h2>{" "}
-        <AddUserButton onClick={() => setIsOpen(true)} />
-        <NormButton onClick={() => setIsOpen(true)}>
-          Добавить пользователя
+        <div className={styles.tableTitleBox}>
+        <h4 className={styles.panelTitle}>Пользователи</h4>
+
+          <UserAddIconButton onClick={() => setIsOpen(true)}/>
+        </div>
+        
+        <NormButton iconLeft='' onClick={() => setIsOpen(true)}>
+          <UserPlus size={24} /> Пользователи
         </NormButton>
+        
       </div>
       <table className={styles.userTable}>
         <thead>
@@ -187,12 +194,23 @@ export default function AdminAddUserPanel() {
             <div className={styles.cardItem}>
               <span className={styles.cardLabel}>Create:</span> {user.createAt}
             </div>
+
+            <div className={styles.cardButtonItem}>
             <NormButton
               onClick={() => handleDeleteUser(user.id)}
               className={styles.deleteButtonCard}
             >
               Удалить
             </NormButton>
+            <NormButton
+              onClick={() => handleEditUser(user)}
+              className={styles.deleteButtonCard}
+            >
+              Изменить
+            </NormButton>
+            
+
+            </div>
           </div>
         ))}
       </div>

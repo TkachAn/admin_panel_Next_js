@@ -1,11 +1,11 @@
-/* src/components/Logotipe.module.css */
+/* src/components/Logotipe.module.css 
 .logotipe {
     position: relative;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border-color: rgb(255, 0, 0);
-    /*background-color: crimson;*/
+ 
     border-style: groove;
   }
 
@@ -13,7 +13,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Центрируем по обеим осям */
+    transform: translate(-50%, -50%); 
     height: 30px;
     width: 15px;
   }
@@ -21,7 +21,7 @@
     position: absolute;
     bottom: 50%;
     left: 50px;
-    transform: translate(20%, 50%); /* Центрируем по обеим осям */
+    transform: translate(20%, 50%); 
     font-size: 1.0rem;
     font-weight: bold;
     color: cornflowerblue;
@@ -31,8 +31,58 @@
     position: absolute;
     bottom: 50%;
     left: 50px;
-    transform: translate(50%, 50%); /* Центрируем по обеим осям */
+    transform: translate(50%, 50%); 
     font-size: 1.0rem;
     font-weight: bold;
     color:blue
   }
+*/
+
+.logotype {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-color: rgb(255, 0, 0);
+  /*background-color: crimson;*/
+  border-style: groove;
+}
+
+.logoImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центрируем по обеим осям */
+  height: 30px;
+  width: 15px;
+}
+.logoName {
+  /*position: absolute;
+  bottom: 50%;
+  left: 50px;
+  transform: translate(20%, 50%); /* Центрируем по обеим осям */
+  font-size: 0.70rem;
+  font-weight: bold;
+  color: cornflowerblue;
+}
+
+.logoTo {
+  /*position: absolute;*/
+  bottom: 50%;
+  left: 50px;
+  transform: translate(50%, 50%); /* Центрируем по обеим осям */
+  font-size: 0.70rem;
+  font-weight: bold;
+  color:blue
+}
+
+.logoFo{
+  font-size: 10px;
+  line-height: 1.0;
+ position: absolute;
+ bottom:10%;
+ left: 55px;
+}
+ .logoDo{
+
+ } 

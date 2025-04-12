@@ -1,7 +1,7 @@
 // elem/modal/error.jsx
 import { Dialog } from "@headlessui/react";
-import { NormButton } from "@/elem/button";
 import styles from "./styles.module.css"; // Создайте этот файл стилей
+import { NormButton } from "@/elem/buttons/buttons";
 
 export default function ErrorModal({ isOpen = true, onClose, message }) {
   return (

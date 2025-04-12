@@ -2,12 +2,26 @@
 
 .navList {
   display: flex;
-  gap: 1rem;
+  /*gap: 1rem;*/
   list-style: none; 
+  align-items: center;
+}
+.navItem {
+  padding: 1px;
+  
 }
 
-.navItem {
-  padding: 10px;
+.navItem :hover {
+  color: blue;
+}/*
+.logout{
+  color: blue;
+}*/
+.navList li:last-child{
+  color: goldenrod;
+}
+.logout :hover{
+  stroke: forestgreen;
 }
 
 /* mobile */
@@ -24,7 +38,7 @@
   .navList {
     padding: 0 20px;
     flex-direction: column;
-    /*width: 100%;
-    align-items: start;*/
+    /*width: 100%;*/
+    align-items: start;
   }
 }

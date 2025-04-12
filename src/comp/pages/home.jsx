@@ -1,13 +1,14 @@
 import react, { useState } from "react";
 import AddUser from "../admin/modal/winsdow"; // твоя модалка
 //import { CloseButton } from "@/elem/closeButton";
-import LogoutButton from "@/elem/logoutButton";
+import LogoutButton from "@/elem/buttons/logoutButton";
 //import { CloseButton, EditButton, AddButton, DeleteButton, Plus1 } from "@/elem/Buttuns";
 import {
   SubmitButton,
   DeleteButton,
   AddButton,
   EditButton,
+  NormButton,
 } from "@/elem/buttons/buttons";
 import {
   CloseIconButton,
@@ -47,7 +48,7 @@ export default function Home() {
         </div>
         <div>
           <h3>NormButton</h3>
-          {/*<NormButton>NormButton</NormButton>*/}
+          <NormButton>NormButton</NormButton>
         </div>
         <div>
           <CloseIconButton />

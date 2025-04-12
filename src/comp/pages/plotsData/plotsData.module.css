@@ -1,0 +1,41 @@
+/* plotsData.module.css */
+.container {
+    /* Ваши стили для контейнера */
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .table thead tr {
+    background-color: #f3f4f6;
+    font-weight: bold;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f5f9;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Дополнительные стили, если они есть в вашем компоненте */
+  .evenRow {
+    /* Ваши стили для четных строк */
+  }
+  
+  .oddRow {
+    /* Ваши стили для нечетных строк */
+  }
