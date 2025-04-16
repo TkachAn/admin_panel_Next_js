@@ -1,4 +1,4 @@
-//comp/body/page.js
+//src/comp/body/page.js
 import React from 'react';
 import styles from './body.module.css';
 

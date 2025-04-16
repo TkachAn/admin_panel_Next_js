@@ -1,5 +1,7 @@
-// src/elem/button/buttons.jsx
+// src/elem/buttons/buttons.jsx
+'use client';
 import React from "react";
+import { signOut } from 'next-auth/react';
 import styles from "./button.module.css";
 import classNames from "classnames";
 
@@ -71,9 +73,24 @@ export const EditButton = ({
   </button>
 );
 
-//import { X } from "lucide-react"; // иконка крестика className={styles.closeButton}
-
 export const NormButton = ({
+  onClick,
+  children,
+  status = "normal",
+  ...props
+}) => (
+  <button
+    onClick={onClick}
+    type="button"
+    className={`${styles.baseButton} ${styles[status]}`}
+    disabled={status === "blocked"}
+    {...props}
+  >
+    {children}
+  </button>
+);
+
+export const customButton = ({
   children,
   onClick,
   type = "button",
@@ -95,6 +112,18 @@ export const NormButton = ({
       {iconLeft && <span className={styles.icon}>{iconLeft}</span>}
       {children}
       {iconRight && <span className={styles.icon}>{iconRight}</span>}
+    </button>
+  );
+};
+
+export const LogoutButton = () => {
+  const handleLogout = async () => {
+    await signOut({ callbackUrl: '/auth' });
+  };
+
+  return (
+    <button className={styles.out} onClick={handleLogout}>
+      Выйти
     </button>
   );
 };

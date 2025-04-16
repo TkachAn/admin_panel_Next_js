@@ -6,6 +6,7 @@ import Navbar from "../navbar/navbar";
 import styles from "./body.module.css";
 import Container from "./container";
 import HamburgerIcon from "./HamburgerIcon";
+import { LogoPic } from "../logo/logoPic";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,10 +26,11 @@ const Header = () => {
   const toggleMenu = () => setMenuOpen(prev => !prev);
 
   return (
-    <header className={styles.header}>
+    <header className={styles.headerVisible}>
       <Container>
         <div className={styles.line_up}>
-          <Logotype />
+          
+          <LogoPic/>
           {isMobile ? (
             <div className={styles.hamburgerWrapper}>
               <HamburgerIcon onClick={toggleMenu} />
@@ -54,7 +56,7 @@ export default Header;
 
 
 
-// src/comp/body/header.jsx
+// src/comp/body/header.jsx<Logotype />
 /*
 'use client';
 import React, { useState } from "react";

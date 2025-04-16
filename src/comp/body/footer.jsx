@@ -1,3 +1,4 @@
+//src/comp/body/footer.js
 import React from 'react';
 import styles from './body.module.css';
 import Container from './container';

@@ -86,3 +86,17 @@
  .logoDo{
 
  } 
+
+ .box{
+  width: 39px;
+  height: 50px;
+  overflow: hidden;
+
+ }
+.pic{
+width: 100%;
+height: auto;
+object-fit:contain; /* Масштабирует картинку, чтобы полностью покрыть контейнер, обрезая, если нужно */
+object-position: center; /* Центрирует картинку внутри контейнера */
+
+}

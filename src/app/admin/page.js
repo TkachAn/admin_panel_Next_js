@@ -1,10 +1,8 @@
 //src/app/admin
 import Footer from "@/comp/body/footer";
-//import styles from "./page.module.css";
-import Main from "@/comp/body/main";
 import Page from "@/comp/body/page";
-import Header from "@/comp/body/header";
 import AdminAddUserPanel from "@/comp/admin/panel";
+import Linker from "@/comp/body/linker";
 
 export const metadata = {
   title: "Панель администратора | Garden plots",
@@ -14,10 +12,9 @@ export const metadata = {
 export default function AdminPanel() {
   return (
     <Page>
-      <Header />
-      <Main title="Панель администратора">
+      <Linker title="Панель администратора">
         <AdminAddUserPanel />
-      </Main>
+      </Linker>
       <Footer> admin@i.ua </Footer>
     </Page>
   );

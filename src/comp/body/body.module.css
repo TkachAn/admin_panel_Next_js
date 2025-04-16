@@ -1,85 +1,25 @@
 /*src/comp/body/body.module.css*/
 /*Page*/
+/* === Page Layout === */
 .page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Занимает всю высоту экрана */
-  width: 100%;
-}
-
-.line_up {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-/*Main*/
-.main {
-  flex-grow: 1;
-  /*padding: 20px 0px;*/
-  width: 100%;
-  margin: 0 auto;
-}
-
-.title {
-  text-align: center;
-  font-size: 1.2rem;
-  margin: 1rem auto;
-}
-
-.footer {
-  background-color: #333;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-/*
-/*Container*/
-.container {
-  width: 100%;
-  margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Адаптивные стили (медиа-запросы) */
-@media (min-width: 480px) {
-  .container {
-    max-width: 470px;
-  }
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 570px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 760px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 990px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1180px;
-  }
-}
-
-.header {
-  position: relative;
-  background-color: #f0f0f0;
-  padding:0;
+.linker {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Центрирование по горизонтали */
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* === Header (mobile & medium screens) === */
+.headerVisible {
+  position: relative;
+  background-color: #f0f0f0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .line_up {
@@ -96,4 +36,111 @@
   background-color: black;
   margin: 6px 0;
   transition: 0.3s;
+}
+
+/* === Vheader (large screens) === */
+.vheaderVisible {
+  display: none;
+}
+
+.vline_up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-top: 20px;
+}
+
+/* === Main Content === */
+.main {
+  flex-grow: 1;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 0 auto;
+}
+
+/* === Footer === */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* === Container === */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* === Reset lists globally === */
+.navList {
+  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* === Responsive Widths === */
+@media (min-width: 481px) {
+  .container {
+    max-width: 480px;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 575px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 767px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 991px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* === Layout switch at large screens (1442px+) === */
+@media (min-width: 1442px) {
+  .linker {
+    flex-direction: row;
+  }
+
+  .headerVisible {
+    display: none;
+  }
+
+  .vheaderVisible {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    padding-left: 30px;
+    background-color: #f0f0f0;
+    z-index: 1000;
+  }
+
+  .main {
+    padding-left: 270px;
+  }
 }

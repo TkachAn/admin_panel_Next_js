@@ -8,14 +8,14 @@ import Header from "@/comp/body/header";
 import Footer from "@/comp/body/footer";
 import Main from "@/comp/body/main";
 import PlotTable from "@/comp/pages/plot_data/PlotTable";
+import Linker from "@/comp/body/linker";
 
 const CountersPage = () => {
   return (
     <Page>
-      <Header />
-      <Main title="Посление показания счетчиков">
+      <Linker title="Посление показания счетчиков">
         <PlotTable />
-      </Main>
+      </Linker>
       <Footer />
     </Page>
   );

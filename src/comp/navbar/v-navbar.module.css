@@ -2,9 +2,10 @@
 
 .navList {
   display: flex;
+  flex-direction: column;
   gap: 1em;
   list-style: none; 
-  align-items: center;
+  align-items:flex-start;
   justify-content: space-between;
 }
 .navItem {
@@ -14,7 +15,10 @@
 
 .navItem :hover {
   color: blue;
-}
+}/*
+.logout{
+  color: blue;
+}*/
 .navList li:last-child{
   color: goldenrod;
 }
@@ -22,24 +26,21 @@
   stroke: forestgreen;
 }
 
-
+/* mobile */
 @media (max-width: 767px) {
   .navbar {
     position: absolute;
     top: 100%;
-min-width: auto;
-    
+    left: 0;
     right: 0;
     background: rgb(250, 250, 250);
     padding: 0 5rem;
   }
 
   .navList {
-    padding: 0 10px;
+    padding: 0 20px;
     flex-direction: column;
-  
+    /*width: 100%;*/
     align-items: start;
   }
 }
-
-

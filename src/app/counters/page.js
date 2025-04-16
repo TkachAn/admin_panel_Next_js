@@ -6,6 +6,7 @@ import Main from "@/comp/body/main";
 import Page from "@/comp/body/page";
 import Header from "@/comp/body/header";
 import ChangeOwnerForm from "@/comp/pages/owners/ChOwnerForm";
+import Linker from "@/comp/body/linker";
 
 export const metadata = {
   title: "О проекте | Garden plots",
@@ -15,10 +16,10 @@ export const metadata = {
 export default function Counters() {
   return (
     <Page>
-      <Header />
-      <Main title="Счётчики">
+      <Linker title="Счётчики">
+      
         <ChangeOwnerForm/>
-      </Main>
+      </Linker>
       <Footer> admin@i.ua </Footer>
     </Page>
   );

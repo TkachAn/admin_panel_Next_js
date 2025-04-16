@@ -1,7 +1,20 @@
+//src/comp/pages/home.jsx
+import GardenReadingsTable from "./lastReadings/table";
+
+export default function Home() {
+
+  return (
+    <>
+       <GardenReadingsTable/>
+    </>
+  );
+}
+
+/*
 import react, { useState } from "react";
 import AddUser from "../admin/modal/winsdow"; // твоя модалка
 //import { CloseButton } from "@/elem/closeButton";
-import LogoutButton from "@/elem/buttons/logoutButton";
+//import LogoutButton from "@/elem/buttons/logoutButton";
 //import { CloseButton, EditButton, AddButton, DeleteButton, Plus1 } from "@/elem/Buttuns";
 import {
   SubmitButton,
@@ -9,7 +22,9 @@ import {
   AddButton,
   EditButton,
   NormButton,
+  LogoutButton,
 } from "@/elem/buttons/buttons";
+import { LogOutIconButton } from "@/elem/buttons/IconButtons";
 import {
   CloseIconButton,
   DeleteIconButton,
@@ -18,8 +33,11 @@ import {
   UserAddIconButton,
   UserEditIconButton,
 } from "@/elem/buttons/IconButtons";
+import { LogoPic } from "../logo/logoPic";
+import Vnavbar from "../navbar/v-navbar";
+import Vheader from "../body/v-header";
 
-export default function Home() {
+
   const [isOpen, setIsOpen] = useState(false); // ← вот этого не хватало
   const [formData, setFormData] = useState({
     name: "",
@@ -35,49 +53,8 @@ export default function Home() {
     setIsOpen(false); // закрыть модалку после отправки
   }
 
-  return (
-    <>
-      <div>
-        <div>
-       
-          {/*<CloseButton>CloseButton</CloseButton>*/}
-        </div>
-        <div>
-          <h3>LogoutButton</h3>
-          <LogoutButton>LogoutButton</LogoutButton>
-        </div>
-        <div>
-          <h3>NormButton</h3>
-          <NormButton>NormButton</NormButton>
-        </div>
-        <div>
-          <CloseIconButton />
-          <EditIconButton />
-          <AddIconButton />
-          <DeleteIconButton />
-          <UserAddIconButton />
-          <UserEditIconButton />
-        </div>
-        <div>
-          <SubmitButton />
-          <EditButton />
-          <AddButton />
-          <DeleteButton />
-        </div>
-        <button onClick={() => setIsOpen(true)}>Открыть модалку</button>
-        <AddUser
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-          onSubmit={handleSubmit}
-          formData={formData}
-          setFormData={setFormData}
-        />
-      </div>
-    </>
-  );
-}
 
-/*
+
       <p>
         Что такое Lorem Ipsum? Lorem Ipsum - это текст-"рыба", часто
         используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
@@ -90,4 +67,40 @@ export default function Home() {
         время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах
         которых используется Lorem Ipsum.
       </p>
+
+       <div>
+          <LogOutIconButton/>
+         
+          </div>
+          <div>
+            <h3>LogoutButton</h3>
+            <LogoutButton/>
+          </div>
+          <div>
+            <h3>NormButton</h3>
+            <NormButton children="children"/>
+          </div>
+          <div>
+            <CloseIconButton />
+            <EditIconButton />
+            <AddIconButton />
+            <DeleteIconButton />
+            <UserAddIconButton />
+            <UserEditIconButton />
+          </div>
+          <div>
+            <SubmitButton />
+            <EditButton />
+            <AddButton status="blocked" />
+            <DeleteButton status="accent" />
+          </div>
+          <NormButton onClick={() => setIsOpen(true)} children="Открыть модалку"/>
+          <AddUser
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            onSubmit={handleSubmit}
+            formData={formData}
+            setFormData={setFormData}
+          />
+
 */

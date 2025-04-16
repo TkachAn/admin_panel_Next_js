@@ -1,29 +1,4 @@
-/* button.module.css */
-
-  .actionButton {
-    padding: 8px 16px;
-    background-color: #4682b4;
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  .addButton {
-    background-color: #28a745;
-  }
-  
-  .deleteButton {
-    background-color: #dc3545;
-  }
-  
-  .editButton {
-    background-color: #ffc107;
-  }
-
-  /* button.module.css */
-
+/* //src/elem/buttons/button.module.css */
 .baseButton {
   padding: 8px 16px;
   border: none;
@@ -58,13 +33,13 @@
   cursor: not-allowed;
 }
 
-
+/*iconButtons*/
 .iconButton {
   background: transparent;
   border: none;
   padding: 4px;
   cursor: pointer;
-  /*color: #444;*/
+  color: rgb(153, 17, 112);
   transition: color 0.2s;
 }
 
@@ -72,18 +47,16 @@
   color: crimson;
 }
 
-
-.iconButton {
-  background: transparent;
+.out{
   border: none;
-  padding: 4px;
+  background-color:transparent;
+  color: #007bff;
+  
+  font-weight: 700;
+}
+.out:hover{
   cursor: pointer;
-  /*color: #444;*/
-  transition: color 0.2s ease;
+  color: blue;
+  
 }
-
-.iconButton:hover:not(:disabled) {
-  color: crimson;
-}
-
   

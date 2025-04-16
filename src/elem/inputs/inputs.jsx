@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useCallback  }  from "react";
 import { Textarea } from "./Textarea";
 import styles from "./Inputs.module.css";

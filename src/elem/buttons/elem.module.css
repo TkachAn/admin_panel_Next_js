@@ -182,4 +182,17 @@
   .toggleInput:checked + .toggleSlider::before {
     transform: translateX(20px);
   }
+
+  .out{
+    border: none;
+    background-color:transparent;
+    color: #007bff;
+    
+    font-weight: 700;
+  }
+  .out:hover{
+    cursor: pointer;
+    color: blue;
+    
+  }
   

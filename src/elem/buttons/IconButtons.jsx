@@ -27,7 +27,7 @@ const LogOutIconButton = ({ title = "Выход" }) => (
   <button onClick={async () => {
     await signOut({ callbackUrl: '/auth' });
   }}  type="button" className={styles.iconButton} title={title}>
-    <LogOut stroke={'blue'} size={24} />
+    <LogOut  size={24} />
   </button>
 );
 const AddIconButton = ({ onClick, title = "Добавить" }) => (
@@ -44,8 +44,7 @@ const UserAddIconButton = ({ onClick, title = "Добавить пользова
 
 const UserEditIconButton = ({
   onClick,
-  title = "Редактировать пользователя",
-}) => (
+  title = "Редактировать пользователя",}) => (
   <button onClick={onClick}  type="button" className={styles.iconButton} title={title}>
     <UserPen size={24} />
   </button>
@@ -60,3 +59,4 @@ export {
   UserEditIconButton,
   LogOutIconButton ,
 };
+//stroke={'blue'}

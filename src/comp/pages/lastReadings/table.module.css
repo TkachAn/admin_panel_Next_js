@@ -1,0 +1,131 @@
+.wrapper{
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .filters {
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    background-color:#ddd;
+    padding: 8px 18px;
+  }
+
+  .titleFilter{
+    margin-right: 20px;
+  }
+
+  .titleFilter{
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    background-color: white;
+    margin: 0 15px;
+    padding: 10px 15px;
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+  }
+  
+  .table th,
+  .table td {
+    min-width: 70px;
+    padding: 5px 15px;
+    text-align: left;
+    border: 1px solid #eee;
+  }
+
+  .table th {
+    background-color: #f4f4f4;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .table td {
+    font-size: 15px;
+  }
+   
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  .r{
+    text-align: right;
+    max-width: 50px;
+   /* display: flex;
+    justify-content: right;*/
+  
+  }
+  .table tr:hover {
+    background-color: #f5faff;
+    cursor: pointer;
+  }
+  
+  .selectedRow {
+    background-color: #d0e8ff !important;
+  }
+  
+
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination span {
+    font-size: 16px;
+    margin: 0 10px;
+  }
+  
+
+  /*
+  .pagination {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .pagination button {
+    background-color: #f1f1f1;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: #ddd;
+  }
+  .pagination span {
+    font-size: 16px;
+    margin: 0 10px;
+  }
+  */
