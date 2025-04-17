@@ -1,16 +1,20 @@
 //src/comp/body/header.jsx
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import Logotype from "../logo/logo";
 import Navbar from "../navbar/navbar";
 import styles from "./body.module.css";
 import Container from "./container";
 import HamburgerIcon from "./HamburgerIcon";
-import { LogoPic } from "../logo/logoPic";
+import { LogoPic } from "@/comp/logo/logoPic";
+import MultiLevelAccordion from "../navbar/multiBar";
+import menuItemsW from "../navbar/multiMenu";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+
 
   useEffect(() => {
     const checkScreen = () => {
@@ -23,20 +27,19 @@ const Header = () => {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <header className={styles.headerVisible}>
       <Container>
         <div className={styles.line_up}>
-          
-          <LogoPic/>
+          <LogoPic />
           {isMobile ? (
             <div className={styles.hamburgerWrapper}>
               <HamburgerIcon onClick={toggleMenu} />
             </div>
           ) : (
-            <Navbar isOpen={false} /> // обычное меню на десктопе
+            <MultiLevelAccordion menuItems={menuItemsW} isOpen={false} />
           )}
         </div>
 
@@ -53,8 +56,7 @@ const Header = () => {
 };
 
 export default Header;
-
-
+//<Navbar isOpen={false} /> // обычное меню на десктопе
 
 // src/comp/body/header.jsx<Logotype />
 /*

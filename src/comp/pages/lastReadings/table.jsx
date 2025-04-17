@@ -1,6 +1,8 @@
 //src/comp/pages/lastReadings/table.jsx
 
 "use client";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 import React, { useState, useEffect } from "react";
 import styles from "./table.module.css";
 import { TextInput } from "@/elem/inputs/TextInput";
@@ -25,6 +27,8 @@ function GardenReadingsTable() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const [isSearchApplied, setIsSearchApplied] = useState(false);
 
   const fetchData = async () => {
     setLoading(true);
@@ -86,50 +90,80 @@ function GardenReadingsTable() {
       const data = await res.json();
       setFullHistory(data.readings || []);
       setIsHistoryShown(true);
+
+      setIsSearchApplied(true);
     } catch (error) {
       console.error("Ошибка при загрузке полной истории:", error);
     }
   };
 
-  const [isSearchApplied, setIsSearchApplied] = useState(false);
   const handleResetFilters = () => {
     setIsHistoryShown(false);
     setFullHistory([]);
   };
-  /*
-      <button
-        onClick={() => {
-          if (isSearchApplied) {
-            // Сброс
-            setPlotNumberInput("");
-            setOwnerNameInput("");
-            setPlotNumberFilter("");
-            setOwnerNameFilter("");
-            setIsSearchApplied(false);
-            setIsHistoryShown(false);
-            setFullHistory([]);
-            fetchData();
-          } else {
-            // Поиск
-            setPlotNumberFilter(plotNumberInput.trim());
-            setOwnerNameFilter(ownerNameInput.trim());
-            setIsSearchApplied(true);
-          }
-        }}
-      >
-        {isSearchApplied ? "Сброс" : "Поиск"}
-      </button>
-  */
+
+
+  const downloadAllLastReadings = () => {
+    const wb = XLSX.utils.book_new();
+    const wsData = [
+      ["Участок №", "Владелец", "Дата записи", "Показания", "Пломба", "Замечания"],
+      ...readings.map(r => [
+        r.plot_number,
+        r.owner_name,
+        new Date(r.date).toLocaleDateString(),
+        r.reading,
+        r.check_plomb ? "Да" : "Нет",
+        r.reading_note,
+      ]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+    XLSX.utils.book_append_sheet(wb, ws, "Последние показания");
+    const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    saveAs(new Blob([wbout], { type: 'application/octet-stream' }), 'последние_показания.xlsx');
+  };
+
+  const downloadFilteredHistory = () => {
+    let dataToDownload = [];
+    let fileName = 'история_показаний.xlsx';
+
+    if (isHistoryShown) {
+      dataToDownload = fullHistory;
+      fileName = `история_участок_${fullHistory[0]?.plot_number}.xlsx`;
+    } else if (isSearchApplied) {
+      dataToDownload = data;
+      if (plotNumberFilter) {
+        fileName = `история_участок_${plotNumberFilter}.xlsx`;
+      } //else if (ownerNameFilter) {fileName = `история_владелец_${ownerNameFilter.replace(/\s/g, '_')}.xlsx`;
+        if (ownerNameFilter) {fileName = `история_владелец_${ownerNameFilter}.xlsx`;
+      }
+    }
+
+    if (dataToDownload.length > 0) {
+      const wb = XLSX.utils.book_new();
+      const wsData = [
+        ["Участок №", "Владелец", "Дата записи", "Показания", "Пломба", "Замечания"],
+        ...dataToDownload.map(r => [
+          r.plot_number,
+          r.owner_name,
+          new Date(r.date).toLocaleDateString(),
+          r.reading,
+          r.check_plomb ? "Да" : "Нет",
+          r.reading_note,
+        ]),
+      ];
+      const ws = XLSX.utils.aoa_to_sheet(wsData);
+      XLSX.utils.book_append_sheet(wb, ws, "История показаний");
+      const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      saveAs(new Blob([wbout], { type: 'application/octet-stream' }), fileName);
+    } else {
+      alert("Нет данных для скачивания.");
+    }
+  };
 
   const displayedData = isHistoryShown ? fullHistory : data;
 
-  //const totalPages = Math.ceil(readings.length / itemsPerPage);
-  const totalPages = Math.ceil(displayedData.length / itemsPerPage);
+   const totalPages = Math.ceil(displayedData.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
-  /*const currentItems = readings.slice(
-    indexOfLastItem - itemsPerPage,
-    indexOfLastItem
-  );*/
 
   const currentItems = displayedData.slice(
     indexOfLastItem - itemsPerPage,
@@ -142,26 +176,31 @@ function GardenReadingsTable() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.filters}>
-        
-        <TextInput
-          label="Участок №: "
-          placeholder="например, 15-Б"
-          onChange={(e) => setPlotNumberInput(e.target.value)}
-          value={plotNumberInput}
-        />
-        <TextInput
-          label="Владелец: "
-          placeholder="например, Иванов И. И."
-          value={ownerNameInput}
-          onChange={(e) => setOwnerNameInput(e.target.value)}
-        />
-        <NormButton
-          status="accent"
-          children={isSearchApplied ? "Сброс" : "Поиск"}
-          onClick={() => {
-            handleSearchClick();
-          }}
-        />
+        <div>
+          <div className={styles.filter}>
+            <TextInput
+              label="Участок №: "
+              placeholder="например, 15-Б"
+              onChange={(e) => setPlotNumberInput(e.target.value)}
+              value={plotNumberInput}
+            />
+            <TextInput
+              label="Владелец: "
+              placeholder="например, Иванов И. И."
+              value={ownerNameInput}
+              onChange={(e) => setOwnerNameInput(e.target.value)}
+            />
+          </div>
+          <div className={styles.filter}>
+            <NormButton
+              status="accent"
+              children={isSearchApplied ? "Сброс" : "Поиск"}
+              onClick={() => {
+                handleSearchClick();
+              }}
+            />
+          </div>
+        </div>
       </div>
 
       {loading && <p>Загрузка данных...</p>}
@@ -208,37 +247,45 @@ function GardenReadingsTable() {
               ))}
             </tbody>
           </table>
-
-          <div className={styles.pagination}>
-            <div>
-              <label>Записей на странице:</label>
-              <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
-                <option value={5}>5</option>
-                <option value={10}>10</option>
-                <option value={20}>20</option>
-              </select>
-            </div>
-            <button
-              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              disabled={currentPage === 1}
-            >
-              ← назад
-            </button>
-            <span>{`${currentPage} / ${totalPages}`}</span>
-            <button
-              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-              disabled={currentPage === totalPages}
-            >
-             вперёд →
-            </button>
-          </div>
         </>
       )}
+              <div className={styles.downloadButtons}>
+          <NormButton onClick={downloadAllLastReadings}>
+            Скачать все последние показания (Excel)
+          </NormButton>
+          <NormButton onClick={downloadFilteredHistory} disabled={loading || error || readings.length === 0}>
+            Скачать {isHistoryShown ? 'историю участка' : isSearchApplied ? 'текущий фильтр' : 'последние показания'} (Excel)
+          </NormButton>
+        </div>
+      <div className={styles.pag}>
+        <div className={styles.pagination}>
+          <div className={styles.label}>
+            <label>Записей на странице:</label>
+            <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+            </select>
+          </div>
+          <button
+            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            ← назад
+          </button>
+          <span>{`${currentPage} / ${totalPages}`}</span>
+          <button
+            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            вперёд →
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default GardenReadingsTable;
-
 
 //<span className={styles.titleFilter}>Поиск </span>

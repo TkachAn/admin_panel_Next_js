@@ -1,34 +1,106 @@
 /* src/components/Navbar.module.css */
 
+/*
+.navbar {
+  background-color: #fff;
+  padding: 1rem;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.open {
+  display: block;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  position: relative;
+}
+
+.navItem > div,
+.navItem a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.subMenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: #f9f9f9;
+  padding-left: 1rem;
+}
+
+.subMenuOpen {
+  max-height: 300px;
+}
+
+.subNavItem {
+  padding: 0.5rem 1rem;
+}
+
+.logout {
+  color: red;
+  margin-left: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    width: 250px;
+  }
+
+  .navItem {
+    border: none;
+    padding: 1rem;
+  }
+
+  .subMenu {
+    padding-left: 1.5rem;
+  }
+}
+*/
+
+
+
 .navList {
   display: flex;
   gap: 1em;
-  list-style: none; 
+  list-style: none;
   align-items: center;
   justify-content: space-between;
 }
 .navItem {
   padding: 1px;
-  
+  cursor: pointer;
 }
 
 .navItem :hover {
   color: blue;
 }
-.navList li:last-child{
+.navList li:last-child {
   color: goldenrod;
 }
-.logout :hover{
+.logout :hover {
   stroke: forestgreen;
 }
-
 
 @media (max-width: 767px) {
   .navbar {
     position: absolute;
     top: 100%;
-min-width: auto;
-    
+    min-width: auto;
+
     right: 0;
     background: rgb(250, 250, 250);
     padding: 0 5rem;
@@ -37,9 +109,40 @@ min-width: auto;
   .navList {
     padding: 0 10px;
     flex-direction: column;
-  
+
     align-items: start;
+  }
+  .subMenu {
+    left: 0;
   }
 }
 
+/* navbar.module.css */
+.dop{
+position: relative;
+}
 
+.subMenu {
+  position: absolute; 
+  top: 100%; 
+  right: 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 10; 
+}
+
+.subNavItem {
+  padding: 10px 20px;
+}
+
+.subNavItem a {
+  text-decoration: none;
+  color: #333;
+}
+
+.subNavItem a:hover {
+  background-color: #eee;
+}

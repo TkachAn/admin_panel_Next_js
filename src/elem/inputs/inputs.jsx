@@ -78,14 +78,16 @@ const EmailInput = ({
   );
 };
 const TextInput = ({
-  value,
-  onChange,
-  placeholder = "Введите текст",
-  status = "normal",
-}) => {
+  label, 
+  value, 
+  onChange, 
+  placeholder = "Введите текст", 
+  status = "normal" }) => {
   const isBlocked = status === "blocked";
 
   return (
+    <div className={styles.wrapper}>
+    <label className={styles.label}>{label}</label>
     <input
       type="text"
       value={value}
@@ -94,8 +96,12 @@ const TextInput = ({
       disabled={isBlocked}
       className={`${styles.input} ${styles[status]}`}
     />
-  );
-};
+    </div>
+)};
+
+
+
+
 const PhoneInput = ({
   value,
   onChange,

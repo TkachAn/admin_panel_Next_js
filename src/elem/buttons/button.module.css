@@ -1,6 +1,7 @@
 /* //src/elem/buttons/button.module.css */
 .baseButton {
   padding: 8px 16px;
+  margin: 5px 15px;
   border: none;
   border-radius: 6px;
   font-weight: 600;

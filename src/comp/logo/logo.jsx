@@ -4,7 +4,7 @@ import styles from './logo.module.css';
 const Logotype = () => {
   return <div className={styles.logotype}>
     <div>
-    <img src="1flash.png" alt="1flash" className={styles.logoImg}/>
+    <img src="/1flash.png" alt="1flash" className={styles.logoImg}/>
 
     </div>
     <div className={styles.logoFo}>

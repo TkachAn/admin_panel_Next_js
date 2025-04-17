@@ -1,0 +1,108 @@
+.nav {
+  width: 100%;
+  font-family: "Century Gothic", Arial, sans-serif;
+  padding: 0px 28px 0px 0;
+}
+
+.Vnav {
+  width: 213px;
+  font-family: "Century Gothic", Arial, sans-serif;
+  padding: 40px 28px 25px 0;
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}
+.leftnav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em;
+}
+.topnav li {
+  position: relative;
+  border-bottom: 1px solid #d3d3d3;
+  background: #f2f2f2;
+}
+
+.leftnav li {
+  border-bottom: 1px solid #d3d3d3;
+  background: #f2f2f2;
+}
+
+.linkWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topnav a {
+  display: block;
+  padding: 10px 5px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.leftnav a {
+  display: block;
+  padding: 10px 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #7d7d7d;
+  color: white;
+}
+
+.leftnav a:hover {
+  background-color: #7d7d7d;
+  color: white;
+}
+
+.submenu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  list-style: none;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.leftsubmenu {
+  left: 0;
+  top: 100%;
+  list-style: none;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.submenu li a {
+  color: #555;
+  font-weight: normal;
+}
+
+.submenu li a:hover {
+  background-color: #dcdcdc;
+}
+
+.submenu li ul a {
+  color: silver;
+  padding-left: 20px;
+}
+
+.toggleSign {
+  margin-left: auto;
+  padding: 0 5px;
+  font-size: 11px;
+}
