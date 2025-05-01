@@ -13,11 +13,11 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const plotId = searchParams.get('plotId');
   const ownerId = searchParams.get('ownerId');
-  const counterId = searchParams.get('counterId');
+  //const counterId = searchParams.get('counterId');
 
   let whereClauses = [];
   let values = [];
-
+/*
   if (plotId && ownerId && counterId) {
     // Клик по строке: ищем по всем трём ID
     whereClauses.push('plot_id = ?', 'owner_id = ?', 'counter_id = ?');
@@ -26,7 +26,8 @@ export async function GET(request) {
     // Фильтрация по участку и владельцу
     whereClauses.push('plot_id = ?', 'owner_id = ?');
     values.push(plotId, ownerId);
-  } else if (plotId) {
+  } else */
+  if (plotId) {
     // Только по участку
     whereClauses.push('plot_id = ?');
     values.push(plotId);
@@ -43,9 +44,9 @@ export async function GET(request) {
   let connection;
   try {
     connection = await pool.getConnection();
-
+//p_o_h_readings
     const query = `
-      SELECT * FROM p_o_h_readings
+      SELECT * FROM all_data
       ${whereClause}
       ORDER BY date DESC
     `;
@@ -53,7 +54,7 @@ export async function GET(request) {
 
     return NextResponse.json({ readings: rows });
   } catch (error) {
-    console.error('Ошибка при запросе из p_o_h_readings:', error);
+    console.error('Ошибка при запросе из all_data:', error);
     return NextResponse.json({ error: 'Ошибка при получении данных' }, { status: 500 });
   } finally {
     if (connection) connection.release();

@@ -1,0 +1,120 @@
+/* src/app/styles/global.css */
+
+:root {
+    /* Цвета */
+    --background: #ffffff; /* Основной фон */
+    --foreground: #171717; /* Текст */
+    --primary-color: #3498db; /* Основной цвет */
+    --secondary-color: #2ecc71; /* Вторичный цвет */
+    --accent-color: #e74c3c; /* Акцентный цвет */
+    --link-color: #2980b9; /* Цвет ссылок */
+    
+    /* Шрифты */
+    --font-family-primary: 'Arial', Helvetica, sans-serif; /* Основной шрифт */
+    --font-family-secondary: 'Century Gothic', sans-serif; /* Альтернативный шрифт */
+    
+    --font-size-base: 16px; /* Базовый размер шрифта */
+    --font-size-lg: 18px; /* Большой шрифт */
+    --font-size-sm: 14px; /* Маленький шрифт */
+    
+    /* Границы */
+    --border-radius: 5px; /* Радиус скругления */
+    --border-color: #e0e0e0; /* Цвет границ */
+    
+    /* Тени */
+    --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Тень для элементов */
+    --box-shadow-hover: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Тень для элементов при наведении */
+    
+    /* Расстояния */
+    --padding-base: 10px; /* Базовое расстояние */
+    --margin-base: 15px; /* Базовое отступление */
+  
+    /* Ширина и высота */
+    --max-width: 1200px; /* Максимальная ширина для контента */
+    
+    /* Цвета для темной темы */
+    --background-dark: #0a0a0a;
+    --foreground-dark: #ededed;
+  }
+  
+  /* Темная тема */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: var(--background-dark);
+      --foreground: var(--foreground-dark);
+      --primary-color: #9b59b6; /* Цвет для темной темы */
+      --secondary-color: #8e44ad; /* Вторичный цвет для темной темы */
+    }
+  
+    html {
+      color-scheme: dark;
+    }
+  }
+  
+  /* Общие стили */
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    color: var(--foreground);
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  
+  button {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    padding: var(--padding-base);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    box-shadow: var(--box-shadow-hover);
+  }
+  
+  /* Таблица */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--margin-base) 0;
+  }
+  
+  th, td {
+    padding: var(--padding-base);
+    text-align: left;
+    border: 1px solid var(--border-color);
+  }
+  
+  th {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  /* Убираем сноску на ссылках */
+  a:focus, a:active {
+    outline: none;
+  }
+  

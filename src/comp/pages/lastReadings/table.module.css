@@ -12,78 +12,78 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
-  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden; /* Для скругления углов */
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
 }
-
 .table th,
 .table td {
-  min-width: 70px;
-  padding: 5px 15px;
-  text-align: left;
-  border: 1px solid #eee;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
 }
 
-.table th {
-  background-color: #f4f4f4;
-  font-size: 15px;
-  font-weight: bold;
-}
 .table td {
-  font-size: 15px;
+  padding: 5px 5px;
+  text-align: left;
+  
+}
+.table th {
+  vertical-align: top; 
+  padding: 10px 10px;
+  background-color: #f0f0f0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.table tbody{
+  font-size: 14px;
+  font-weight: normal;
 }
 
 .table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f8f8f8;
+
 }
-.table tbody tr:nth-child(even):hover {
-  background-color: green;
-  color: #ddd;
-}
-.table tr:hover {
-  background-color: green;
-  color: #ddd;
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
   cursor: pointer;
 }
 
-.selectedRow {
-  background-color: #d0e8ff !important;
+.table th:nth-child(1), /* Первая колонка (Номер участка) */
+.table td:nth-child(1) {
+  width: 50px;
+  text-align: center;
 }
 
-.pag {
-  display: flex;
+.table th:nth-child(2), /* Вторая колонка (Владелец) */
+.table td:nth-child(2) {
+  width: 100px;
 }
-.pagination {
-  display: block;
-  margin: 10px auto;
+.table th:nth-child(3), /* Вторая колонка (Дата записи) */
+.table td:nth-child(3) {
+  width: 30px;
+  text-align: center;
 }
-
-.label {
-  display: block;
-
-  margin-bottom: 10px;
-  margin-top: 10px;
+.table th:nth-child(4), /* Вторая колонка (Показания) */
+.table td:nth-child(4) {
+  width: 10px;
+  text-align: right;
+  padding-right: 20px;
 }
-
-.pagination button {
-  padding: 8px 16px;
-  margin: 0 5px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  border-radius: 4px;
+.table th:nth-child(5), /* Вторая колонка (пломба) */
+.table td:nth-child(5) {
+  width: 30px;
+  text-align: center;
 }
-
-.pagination button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.pagination span {
-  font-size: 16px;
-  margin: 0 10px;
+.table th:nth-child(6), /* Вторая колонка (Замечания) */
+.table td:nth-child(6) {
+  width: 250px;
 }
 
 .filters {
@@ -131,13 +131,20 @@
   .filters>div {
     width: 100%;
     display: flex;
+    justify-content:left;
+    margin: 0;
   }
   .filter {
     display: flex;
     flex-direction: row;
     align-items:center;
-    justify-content:space-between;
+    margin: 0;
+    
     background-color: #ddd;
+    
+  }
+  .filters>div {
+    
     
   }
 }

@@ -1,0 +1,284 @@
+/* src/components/admin/panel.module.css */
+/* ... существующие стили ... */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden; /* Для скругления углов */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table th,
+.table td {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+}
+
+.table td {
+  padding: 5px 5px;
+  text-align: left;
+  
+}
+
+.table th {
+  vertical-align: top; 
+  padding: 10px 10px;
+  background-color: #f0f0f0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.table tbody{
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f8f8;
+
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+
+/*
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.table th,
+.table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.table thead tr {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f5f9;
+  transition: background-color 0.2s ease-in-out;
+}
+*/
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .modalContent button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
+
+  /* panel.module.css */
+
+.panelContainer {
+  padding: 1.5rem; /* Соответствует p-6 в Tailwind */
+}
+
+.panelTitle {
+  font-size: 1.5rem; /* Соответствует text-2xl в Tailwind */
+  font-weight: bold; /* Соответствует font-bold в Tailwind */
+  /*margin-bottom: 1rem; */
+}
+.head {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  background-color: #ddd;
+  margin: 0px auto;
+}
+/*
+.userTable {/*
+  width: 100%;
+  border-collapse: collapse; */
+/*
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden; 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+/*Чтобы убрать двойные границы *//*
+.tableHeaderRow {
+  background-color: #f3f4f6; 
+}
+/* Соответствует bg-gray-100 в Tailwind *//*
+.tableHeaderCell,
+.tableCell {
+  border: 1px solid #d1d5db; 
+  padding: 0.5rem; 
+  text-align: left; 
+}
+/* Соответствует p-2 в Tailwind *//* Обычно для табличных данных *//* Соответствует border в Tailwind (может потребоваться настроить цвет) */
+/* Если у вас есть дополнительные стили для .tableRow, добавьте их здесь */
+/*
+.tableRow:nth-child(even) { 
+  background-color: #f9f9f9;
+}
+/* Необязательно: чередующаяся расцветка строк */
+/*
+.tableTitle{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  justify-content: space-between;
+}/*
+.tableTitleBox{
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* panel.module.css */
+
+/* ... существующие стили для таблицы ... */
+
+.table th:nth-child(1), /* Первая колонка (Номер участка) */
+.table td:nth-child(1) {
+  width: 50px;
+  text-align: center;
+}
+
+.table th:nth-child(2), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(2) {
+  width: 150px;
+}
+.table th:nth-child(3), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(3) {
+  width: 200px;
+}
+.table th:nth-child(4), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(4) {
+  width: 50px;
+}
+.table th:nth-child(5), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(5) {
+  width: 50px;
+}
+.table th:nth-child(6), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(6) {
+  width: 50px;
+}
+.table th:nth-child(7), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(7) {
+  width: 50px;
+}
+
+.userCard {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cardItem {
+  margin-bottom: 0.5rem;
+}
+
+.cardLabel {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.deleteButtonCard {
+  background-color: #f44336;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.deleteButtonCard:hover {
+  background-color: #d32f2f;
+}
+
+/* Скрываем карточки по умолчанию для широких экранов */
+.userCard {
+  display: none;
+}
+
+/* Применяем стили для карточек на экранах шириной 768px и меньше */
+@media (max-width: 768px) {
+  .table {
+    display: none; /* Скрываем таблицу на мобильных устройствах */
+  }
+
+  .userCard {
+    display: block; /* Показываем карточки на мобильных устройствах */
+  }
+}
+.cardButtonItem{
+  padding: 5px;
+  border-top: 1px solid grey; /* Вот и наша верхняя полоса! */
+  display: flex;
+  justify-content:space-evenly;
+}
+
+.tableHeaderCell.actions,
+.tableCell.actions {
+  text-align: center; /* Выравнивание содержимого столбца действий по центру */
+}
+
+.deleteButton {
+  background-color: #f0f0f0; /* Красный цвет для кнопки удаления */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+}
+
+.icons{
+  display: flex;
+  justify-content: space-between;
+}

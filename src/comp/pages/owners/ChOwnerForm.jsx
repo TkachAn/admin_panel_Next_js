@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import styles from './Owners.module.css';
+import { EmailInput, PhoneInput } from '@/elem/inputs/inputs';
 
 export default function ChangeOwnerForm() {
   const [plotNumber, setPlotNumber] = useState('');
@@ -58,9 +59,11 @@ export default function ChangeOwnerForm() {
               <label>Телефон:
                 <input value={phone} onChange={(e) => setPhone(e.target.value)} />
               </label>
+              <PhoneInput label={"Телефон:"} value={phone} onChange={(e) => setPhone(e.target.value)} /> 
               <label>Email:
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />
               </label>
+              <EmailInput label={"Email:"} value={email} onChange={(e) => setEmail(e.target.value)}/>
             </>
           )}
 

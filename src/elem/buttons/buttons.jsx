@@ -89,7 +89,7 @@ export const NormButton = ({
     {children}
   </button>
 );
-
+/*
 export const customButton = ({
   children,
   onClick,
@@ -115,7 +115,7 @@ export const customButton = ({
     </button>
   );
 };
-
+*/
 export const LogoutButton = () => {
   const handleLogout = async () => {
     await signOut({ callbackUrl: '/auth' });

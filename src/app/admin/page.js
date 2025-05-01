@@ -1,8 +1,9 @@
 //src/app/admin
 import Footer from "@/comp/body/footer";
 import Page from "@/comp/body/page";
-import AdminAddUserPanel from "@/comp/admin/panel";
+
 import Linker from "@/comp/body/linker";
+import AdminAddUserPanel from "@/components/tables/UserTable";
 
 export const metadata = {
   title: "Панель администратора | Garden plots",

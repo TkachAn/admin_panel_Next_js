@@ -1,0 +1,28 @@
+/* src/components/ErrorPage.module.css */
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.errorCode {
+    font-size: 4em;
+    color: #d32f2f; /* Красный цвет для кода ошибки */
+    margin-bottom: 10px;
+}
+
+.errorMessage {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.errorSuggestion {
+    color: #777;
+    font-style: italic;
+}

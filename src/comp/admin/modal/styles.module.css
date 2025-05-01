@@ -1,4 +1,142 @@
 /* adminUserModal.module.css */
+
+/* styles.module.css */
+
+.modalPanel {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dialogTitle {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 16px;
+}
+/*
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+/*
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+/*
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+}*/
+
+.input,
+.select,
+.textarea {
+  display: flex;
+justify-content: end;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+ /* border: 1px solid #ddd;
+  border-radius: 6px;*/
+  outline: none;
+}
+/*
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: #999;
+}
+/*
+.select {
+  appearance: none;
+  background-color: #fff;
+}
+/*
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+*/
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.centeredWrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+/*
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23999' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+
+
 .modalPanel {
   background: white;
   padding: 24px;
@@ -29,7 +167,7 @@
   margin-bottom: 16px;
   text-align: center;
 }
-
+/*
 .form {
   display: flex;
   flex-direction: column;
@@ -70,8 +208,7 @@
   width: 300px;
 
   padding: 30px 0 0 20px;
-  /*padding-left: 20px;
-  /*padding-right: 20px;*/
+
 }
 /* comp/admin/modal/confirmModal.module.css */
 /*
@@ -106,6 +243,7 @@
   margin-bottom: 1rem;
 }
 */
+/*
 .message {
   margin-bottom: 1.5rem;
 }
@@ -116,6 +254,7 @@
   gap: 0.5rem;
 }
 */
+/*
 .confirmButton {
   background-color: #f44336;
   color: white;
@@ -124,3 +263,4 @@
 .confirmButton:hover {
   background-color: #d32f2f;
 }
+*/

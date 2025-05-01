@@ -1,87 +1,91 @@
+/* Owners.module.css */
+.editDialogOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Чтобы диалог был поверх всего */
+}
+
+.editDialog {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Или задайте фиксированную ширину, например, 400px */
+  max-width: 500px;
+}
+
+.editFormButtons{
+  margin-top: 20px;
+  text-align: center;
+}
 .container {
   width: 100%;
   margin: 20px 0;
   overflow-x: auto;
-  
+
   display: flex;
-    flex-direction: column;
-    gap: 15px;
-    /*padding: 20px;
-    /*border: 1px solid #ccc;
-    border-radius: 5px;
-    /*margin-bottom: 20px;*/
-  }
-  /*
-  .container h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-  }*/
-  
-  .container label {
-    display: flex;
-    flex-direction: column;
-  }
-  /*
-  .container input,
-  .container textarea {
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 1rem;
-  }*/
-  /*
-  .container textarea {
-    resize: vertical;
-  }*/
-  /*
-  .container button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }*/
-  
-  .container button:hover {
-    background-color: #0056b3;
-  }
-  
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-   /* margin-top: 20px;*/
-  }
-  
-  .table th,
-  .table td {
-    min-width: 50px;
-    padding: 5px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .table th {
-    background-color: #f4f4f4;
-    font-size: 15px;
-    font-weight: bold;
-  }
-  
-  .table td {
-    font-size: 12px;
-  }
-  
+  flex-direction: column;
+  gap: 15px;
+}
+
+.searchContainer {
+  display: flex;
+}
+
+.container label {
+  display: flex;
+  flex-direction: column;
+}
+
+.container button:hover {
+  background-color: #0056b3;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  /* margin-top: 20px;*/
+}
+
+.table th,
+.table td {
+  min-width: 50px;
+  padding: 5px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f4f4f4;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.table td {
+  font-size: 12px;
+}
+
 .table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
-.u{
+.u {
   max-width: 60px;
 }
+.pag {
+  margin: 0 auto;
+}
 .pagination {
+  width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,4 +111,13 @@
 .pagination span {
   font-size: 16px;
   margin: 0 10px;
+}
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.select {
+  display: block;
+  width: 70px;
 }

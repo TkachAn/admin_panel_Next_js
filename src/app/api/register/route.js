@@ -1,4 +1,4 @@
-//src/api/register/route.js
+//src/api/register/route.js //Для регистрации нового пользователя и обработка пароля 
 import bcrypt from 'bcrypt';
 import query from '@/app/lib/db';
 

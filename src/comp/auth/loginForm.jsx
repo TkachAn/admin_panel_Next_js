@@ -5,7 +5,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import styles from "./form.module.css";
-import { EmailInput, PassInput } from "@/elem/inputs";
+import { EmailInput, PassInput } from "@/elem/inputs/inputs";
 import { SubmitButton } from "@/elem/buttons/buttons";
 
 export const metadata = {
@@ -34,13 +34,14 @@ export default function AuthPage({ title = "Вход" }) {
     if (res.ok) {
       router.push("/");
     } else {
-      alert("Ошибка входа");
+      alert("Неправильный логин или пароль. Для получения прав доступа к сайту обратитесь к администратору");
     }
   };
 
   return (
     <form onSubmit={handleLogin} className={styles.loginForm}>
       {title && <h2 className={styles.title}>{title}</h2>}
+      <p>для получения прав доступа к сайту обратитесь к администратору</p>
       <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} />
 
       <PassInput value={pass} onChange={(e) => setPass(e.target.value)} />

@@ -6,11 +6,15 @@ import styles from "./panel.module.css";
 import AddUser from "./modal/winsdow";
 import ConfirmModal from "./modal/confirm";
 
-import{EditIconButton, DeleteIconButton, AddIconButton, UserAddIconButton} from '@/elem/buttons/IconButtons'
+import {
+  EditIconButton,
+  DeleteIconButton,
+  AddIconButton,
+  UserAddIconButton,
+} from "@/elem/buttons/IconButtons";
 import ErrorModal from "./modal/errorDel";
 import { X, Trash, Pencil, Plus, UserPlus, UserPen } from "lucide-react";
 import { NormButton } from "@/elem/buttons/buttons";
-
 
 export default function AdminAddUserPanel() {
   const [users, setUsers] = useState([]);
@@ -19,6 +23,7 @@ export default function AdminAddUserPanel() {
   const [userToDelete, setUserToDelete] = useState(null);
   const [userToEdit, setUserToEdit] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null); // Состояние для сообщения об ошибке
+  const [addUserError, setAddUserError] = useState(null); // Новое состояние для ошибки добавления
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,7 +38,7 @@ export default function AdminAddUserPanel() {
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
-
+  /*
   const handleSubmit = async (e) => {
     e.preventDefault();
     const method = formData.id ? "PATCH" : "POST";
@@ -44,13 +49,6 @@ export default function AdminAddUserPanel() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    /*
-    await fetch("/api/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-*/
 
     setIsOpen(false);
     setFormData({
@@ -64,6 +62,47 @@ export default function AdminAddUserPanel() {
     const updated = await fetch("/api/users").then((res) => res.json());
     setUsers(updated);
   };
+*/
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const method = formData.id ? "PATCH" : "POST";
+    const url = formData.id ? `/api/users/${formData.id}` : "/api/users";
+
+    try {
+      const response = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        console.error(`Ошибка при ${method} запросе:`, response.status);
+        if (response.status === 409) {
+          const errorData = await response.json();
+          setAddUserError(errorData.error); // Устанавливаем сообщение об ошибке
+        } else {
+          // Обработка других ошибок, если необходимо
+        }
+        return;
+      }
+
+      setIsOpen(false);
+      setAddUserError(null); // Сбрасываем ошибку при успешном добавлении/редактировании
+      setFormData({
+        name: "",
+        email: "",
+        pass: "",
+        role: "",
+        note: "",
+        createAt: "",
+      });
+      const updated = await fetch("/api/users").then((res) => res.json());
+      setUsers(updated);
+    } catch (error) {
+      console.error("Ошибка при отправке запроса:", error); // Обработка ошибки
+    }
+  };
 
   const handleDeleteUser = (userId) => {
     console.log(`handleDeleteUser userId: ${userId}`);
@@ -73,11 +112,15 @@ export default function AdminAddUserPanel() {
 
   const handleConfirmDelete = async () => {
     if (userToDelete !== null) {
-      console.log('Отправляю DELETE запрос для ID:', userToDelete); 
+      console.log("Отправляю DELETE запрос для ID:", userToDelete);
       try {
-        const response = await fetch(`/api/users/${userToDelete}`, { method: "DELETE" });
+        const response = await fetch(`/api/users/${userToDelete}`, {
+          method: "DELETE",
+        });
         if (response.ok) {
-          const updatedUsers = await fetch("/api/users").then((res) => res.json());
+          const updatedUsers = await fetch("/api/users").then((res) =>
+            res.json()
+          );
           setUsers(updatedUsers);
         } else if (response.status === 403) {
           // Обрабатываем ошибку "нельзя удалить самого себя"
@@ -102,9 +145,9 @@ export default function AdminAddUserPanel() {
     setUserToDelete(null);
   };
   const handleEditUser = (user) => {
-    console.log('EditButton');
+    console.log("EditButton");
     console.log(`user.name: ${user.name}`);
-    setUserToEdit(user.id)
+    setUserToEdit(user.id);
     setFormData({
       id: user.id, // пригодится для PATCH
       name: user.name,
@@ -122,15 +165,14 @@ export default function AdminAddUserPanel() {
     <div className={styles.panelContainer}>
       <div className={styles.tableTitle}>
         <div className={styles.tableTitleBox}>
-        <h4 className={styles.panelTitle}>Пользователи</h4>
+          <h4 className={styles.panelTitle}>Пользователи</h4>
 
-          <UserAddIconButton onClick={() => setIsOpen(true)}/>
+          <UserAddIconButton onClick={() => setIsOpen(true)} />
         </div>
-        
-        <NormButton iconLeft='' onClick={() => setIsOpen(true)}>
+
+        <NormButton onClick={() => setIsOpen(true)}>
           <UserPlus size={24} /> Пользователи
         </NormButton>
-        
       </div>
       <table className={styles.userTable}>
         <thead>
@@ -170,7 +212,8 @@ export default function AdminAddUserPanel() {
         onSubmit={handleSubmit}
         formData={formData}
         setFormData={setFormData}
-        
+        addUserError={addUserError} // Передаем ошибку
+        setAddUserError={setAddUserError} // Передаем функцию для обновления ошибки
       />
       {/* Отображение карточек для мобильных устройств */}
       <div className={styles.cardList}>
@@ -194,37 +237,32 @@ export default function AdminAddUserPanel() {
             <div className={styles.cardItem}>
               <span className={styles.cardLabel}>Create:</span> {user.createAt}
             </div>
-
             <div className={styles.cardButtonItem}>
-            <NormButton
-              onClick={() => handleDeleteUser(user.id)}
-              className={styles.deleteButtonCard}
-            >
-              Удалить
-            </NormButton>
-            <NormButton
-              onClick={() => handleEditUser(user)}
-              className={styles.deleteButtonCard}
-            >
-              Изменить
-            </NormButton>
-            
-
+              <NormButton
+                onClick={() => handleDeleteUser(user.id)}
+                className={styles.deleteButtonCard}
+              >
+                Удалить
+              </NormButton>
+              <NormButton
+                onClick={() => handleEditUser(user)}
+                className={styles.deleteButtonCard}
+              >
+                Изменить
+              </NormButton>
             </div>
           </div>
         ))}
       </div>
-
       <ConfirmModal
         isOpen={confirmOpen}
         onClose={handleCancelDelete}
         onConfirm={handleConfirmDelete}
         message={`Вы уверены, что хотите удалить пользователя с ID: ${userToDelete}?`}
       />
-      {errorMessage &&(<ErrorModal message={errorMessage} onClose={closeErrorModal}/>)}
+      {errorMessage && (
+        <ErrorModal message={errorMessage} onClose={closeErrorModal} />
+      )}
     </div>
   );
 }
-
-
-{/*isEditing={editingUser !== null}*/}

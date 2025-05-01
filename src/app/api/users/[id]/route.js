@@ -1,4 +1,4 @@
-// src/app/api/users/[id]/route.js
+// src/app/api/users/[id]/route.js //Для редактирования выбранного пользователя 
 import { NextResponse } from 'next/server';
 import query from '@/app/lib/db';
 import { getServerSession } from 'next-auth';

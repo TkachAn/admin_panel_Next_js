@@ -1,0 +1,275 @@
+/* src/components/CounterTable.module.css */
+
+/* src/app/components/CounterTable.module.css */
+/*
+.tableContainer {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+*/
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden; /* Для скругления углов */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table th,
+.table td {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+}
+
+.table td {
+  padding: 5px 5px;
+  text-align: left;
+  
+}
+.table th {
+  vertical-align: top; 
+  padding: 10px 10px;
+  background-color: #f0f0f0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.table tbody{
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f8f8;
+
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+
+.table th:nth-child(1), /* Первая колонка (Номер участка) */
+.table td:nth-child(1) {
+  width: 30px;
+  text-align: center;
+}
+
+.table th:nth-child(2), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(2) {
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.table th:nth-child(3), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(3) {
+  width: 150px;
+}
+.table th:nth-child(4), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(4) {
+  width: 50px;
+}
+.table th:nth-child(5), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(5) {
+  width: 50px;
+}
+.table th:nth-child(6), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(6) {
+  width: 50px;
+  text-align: center;
+}
+.table th:nth-child(7), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(7) {
+  width: 50px;
+}
+.table th:nth-child(8), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(8) {
+  width: 50px;
+}
+.table th:nth-child(9), /* Вторая колонка (Серийный номер) */
+.table td:nth-child(9) {
+  width: 50px;
+}
+/* Стиль для кнопок редактирования (если они будут добавлены в таблицу) */
+.editButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для контейнера пагинации */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination button:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Стили для селектора размера страницы (если он есть в этом компоненте) */
+.pageSizeSelector {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.pageSizeSelector label {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.pageSizeSelector select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Стили для контейнера пагинации и селектора */
+.paginationContainer {
+  display: flex;
+  justify-content: space-between; /* Размещаем элементы по краям */
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Стили для формы редактирования в модальном окне */
+.editForm {
+  padding: 20px;
+}
+
+.editForm h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.editForm div {
+  margin-bottom: 15px;
+}
+
+.editForm label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.editForm input[type="text"],
+.editForm textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.editForm textarea {
+  min-height: 80px;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 10px;
+}
+.ButtonFilter,
+.saveButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.saveButton:hover {
+  background-color: #0056b3;
+}
+
+.cancelButton {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cancelButton:hover {
+  background-color: #e0e0e0;
+}
+.step1,
+.head {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  background-color: #ddd;
+  margin: 0px auto;
+}
+
+.search-input {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.ButtonFilter{
+  border: none;
+}
+.p_Wrapper>p{
+margin: 10px 10px 20px 20px;
+}
+.step1, .step1>div{
+  display: flex;
+  justify-content: space-between;
+}
+
+

@@ -4,11 +4,15 @@
   margin: 0 auto;
   padding: 2rem;
   height: 400px;
+  text-align: center;
 }
-
+.loginForm >p{
+font-size: 6px;
+}
 .title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  margin: 10px auto;
+  text-align: center;
 }
 
 .error {

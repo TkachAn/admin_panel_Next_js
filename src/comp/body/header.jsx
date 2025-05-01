@@ -6,7 +6,7 @@ import Navbar from "../navbar/navbar";
 import styles from "./body.module.css";
 import Container from "./container";
 import HamburgerIcon from "./HamburgerIcon";
-import { LogoPic } from "@/comp/logo/logoPic";
+
 import MultiLevelAccordion from "../navbar/multiBar";
 import menuItemsW from "../navbar/multiMenu";
 
@@ -33,7 +33,7 @@ const Header = () => {
     <header className={styles.headerVisible}>
       <Container>
         <div className={styles.line_up}>
-          <LogoPic />
+          <Logotype />
           {isMobile ? (
             <div className={styles.hamburgerWrapper}>
               <HamburgerIcon onClick={toggleMenu} />

@@ -1,21 +1,26 @@
-// app/pages/counters/page.js
-"use client";
-import React from "react";
-import Page from "@/comp/body/page";
-import Main from "@/comp/body/main";
-import Header from "@/comp/body/footer/header";
+//src/app/home
 import Footer from "@/comp/body/footer";
+import Page from "@/comp/body/page";
+import Linker from "@/comp/body/linker";
+import CountersTable from "@/components/tables/CounterTable";
 
-const CountersPage = () => {
-  return (
-    <Page>
-      <Header />
-      <Main title="информация о счётчиках">
-        
-      </Main>
-      <Footer />
-    </Page>
-  );
+
+// app/pages/meters/page.js
+export const metadata = {
+  title: "Учет счетчиков | Garden plots",
+  description: "Перечень зарегистрированных электросчетчиков, Информация о привязке счётчика к земельному участку а также серийный номер, модель, тип, место размещения [дом, двор], наличие пломб, Редактирование изменений.",
 };
 
-export default CountersPage;
+export default function Counters() {
+  return (
+    <Page>
+      <Linker title="Счётчики">
+      
+      <CountersTable/>
+      </Linker>
+      <Footer> admin@i.ua </Footer>
+    </Page>
+  );
+}
+
+//<AddCounterForm/>

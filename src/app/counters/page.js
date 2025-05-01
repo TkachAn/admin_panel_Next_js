@@ -1,16 +1,14 @@
-
 //src/app/home
 import Footer from "@/comp/body/footer";
-//import styles from "./page.module.css";
-import Main from "@/comp/body/main";
 import Page from "@/comp/body/page";
-import Header from "@/comp/body/header";
-import ChangeOwnerForm from "@/comp/pages/owners/ChOwnerForm";
 import Linker from "@/comp/body/linker";
+import CountersTable from "@/components/tables/CounterTable";
 
+
+// app/pages/meters/page.js
 export const metadata = {
-  title: "О проекте | Garden plots",
-  description: "Информация о системе учета электроэнергии",
+  title: "Учет счетчиков | Garden plots",
+  description: "Перечень зарегистрированных электросчетчиков, Информация о привязке счётчика к земельному участку а также серийный номер, модель, тип, место размещения [дом, двор], наличие пломб, Редактирование изменений.",
 };
 
 export default function Counters() {
@@ -18,9 +16,11 @@ export default function Counters() {
     <Page>
       <Linker title="Счётчики">
       
-        <ChangeOwnerForm/>
+      <CountersTable/>
       </Linker>
       <Footer> admin@i.ua </Footer>
     </Page>
   );
 }
+
+//<AddCounterForm/>

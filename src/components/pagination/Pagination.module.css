@@ -1,0 +1,141 @@
+/* src/app/components/Pagination.module.css */
+
+/* src/app/components/Pagination.module.css */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px; /* Расстояние между селектором и номерами страниц */
+  }
+  
+  .pageSizeSelector {
+    display: flex;
+    align-items: center;
+  }
+  
+  .pageSizeSelector label {
+    margin-right: 5px;
+  }
+  
+  .pageSizeSelector select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .pageNumbers {
+    display: flex;
+  }
+  
+  .pageNumbers button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .pageNumbers button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .pageNumbers button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .pageNumbers button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+
+/*
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination button:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+/* src/app/components/Pagination.module.css 
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Выравнивание по вертикали 
+    margin-top: 20px;
+  }
+  
+  .pageNumbers {
+    display: flex;
+  }
+  /*
+  .pageNumbers button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .pageNumbers button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .pageNumbers button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .pageNumbers button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* src/app/components/PageSizeSelector.module.css 
+.pageSizeSelector {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Отступ между селектором и пагинацией 
+  }
+  
+  .pageSizeSelector label {
+    margin-right: 5px;
+  }
+  
+  .pageSizeSelector select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+    */

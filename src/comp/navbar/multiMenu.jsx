@@ -3,19 +3,21 @@ const menuItemsW = [
   { 
     label: 'Главная', 
     children: [
-      { label: 'Главная', href: '/' },
-      { label: 'для админа', href: '/admin/instructions/forAdmin' },
-      { label: 'для бухгалтера', href: '/admin/instructions/forBooker' },
-      { label: 'для инспектора', href: '/admin/instructions/forInspector' },
+      { label: 'на главную', href: '/' },
+      { label: 'Участки', href: '/pages/plots' },
+      { label: 'Владельцы', href: '/pages/owners' },
+      { label: 'Счётчики', href: '/counters' },
+      { label: 'Хронология участков', href: '/pages/history' },
   ], 
 },
   {
     label: 'Добавить',
     children: [
-      { label: 'новый участок', href: '/plots' },
-      { label: 'нового владельца', href: '/owners' },
-      { label: 'новый счётчик', href: '/counters' },
-      { label: 'показания счётчиков', href: '/his' },
+      { label: 'новый участок', href: '/add/plot' },
+      { label: 'нового владельца', href: '/add/owner' },
+      { label: 'новый счётчик', href: '/add/counter' },
+      { label: 'показания счётчиков', href: '/add/reading' },
+      { label: 'новый пользователь', href: '/add/user' },
     ],
   },
   {
@@ -23,17 +25,12 @@ const menuItemsW = [
     children: [
       { label: 'Админпанель', href: '/admin' },
       {
-        label: 'Панель',
-        children: [
-          { label: 'Админпанель', href: '/admin' },
-        ],
-      },
-      {
         label: 'Инструкции',
         children: [
           { label: 'для админа', href: '/admin/instructions/forAdmin' },
           { label: 'для бухгалтера', href: '/admin/instructions/forBooker' },
           { label: 'для инспектора', href: '/admin/instructions/forInspector' },
+          { label: 'ТЕСТ', href: '/errors' },
         ],
       },
     ],
