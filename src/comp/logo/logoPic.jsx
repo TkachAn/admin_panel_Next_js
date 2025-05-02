@@ -1,5 +1,5 @@
 //src/comp/logo/logoPic.jsx
-
+/*
 import React from 'react';
 import styles from './logo.module.css';
 
@@ -10,3 +10,4 @@ return <div className={styles.box}>
 
 </div>
 }
+*/

@@ -1,13 +1,5 @@
+import pool from '@/app/lib/pool_db';
 import { NextResponse } from 'next/server';
-import mysql from 'mysql2/promise';
-
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'root',
-  database: process.env.DB_NAME || 'garden_plots',
-  port: process.env.DB_PORT || 3306,
-});
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -17,16 +9,7 @@ export async function GET(request) {
 
   let whereClauses = [];
   let values = [];
-/*
-  if (plotId && ownerId && counterId) {
-    // Клик по строке: ищем по всем трём ID
-    whereClauses.push('plot_id = ?', 'owner_id = ?', 'counter_id = ?');
-    values.push(plotId, ownerId, counterId);
-  } else if (plotId && ownerId) {
-    // Фильтрация по участку и владельцу
-    whereClauses.push('plot_id = ?', 'owner_id = ?');
-    values.push(plotId, ownerId);
-  } else */
+
   if (plotId) {
     // Только по участку
     whereClauses.push('plot_id = ?');

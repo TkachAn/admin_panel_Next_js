@@ -1,0 +1,250 @@
+/* Общие стили */
+/* Общие стили */
+.nav, .Vnav {
+  width: 100%;
+  font-family: "Century Gothic", Arial, sans-serif;
+}
+
+.Vnav {
+  padding: 40px 28px 25px 0;
+  width: 213px; /* Фиксированная ширина для вертикального меню */
+}
+
+.topnav, .leftnav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  font-size: 1em;
+}
+
+.leftnav {
+  font-size: 1.2em;
+}
+
+.topnav li, .leftnav li {
+  border-bottom: 1px solid #d3d3d3;
+  background: #f2f2f2;
+  position: relative; /* Добавляем relative для позиционирования подменю */
+}
+
+.linkWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topnav a, .leftnav a {
+  display: block;
+  padding: 10px 5px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.topnav a:hover, .leftnav a:hover {
+  background-color: #7d7d7d;
+  color: white;
+}
+
+.submenu, .leftsubmenu {
+  list-style: none;
+  padding-left: 20px;
+  font-size: 15px;
+  position: absolute; /* Теперь абсолютно позиционируем относительно родительского li */
+  z-index: 10; /* Чтобы подменю было над другими элементами */
+  background-color: #f2f2f2; /* Фон подменю */
+  border: 1px solid #d3d3d3; /* Обводка подменю */
+  min-width: 150px; /* Минимальная ширина подменю */
+}
+
+.leftsubmenu {
+  /* Для вертикального меню подменю будут отображаться с отступом */
+  position: relative; /* Возвращаем relative для корректного отображения внутри вертикального меню */
+  top: auto;
+  left: auto;
+  border: none;
+  background-color: transparent;
+}
+
+.submenu li a {
+  color: #555;
+  font-weight: normal;
+  padding: 10px 15px;
+  display: block;
+}
+
+.submenu li a:hover {
+  background-color: #dcdcdc;
+}
+
+.submenu li ul a {
+  color: silver;
+  padding-left: 20px;
+}
+
+.toggleSign {
+  margin-left: auto;
+  padding: 0 5px;
+  font-size: 11px;
+}
+
+/* Стили для горизонтального отображения (по умолчанию для десктопов и планшетов) */
+.horizontalMenu .Vnav {
+  display: none;
+}
+
+.horizontalMenu .nav {
+  display: block;
+}
+
+.horizontalMenu .leftnav {
+  display: none;
+}
+
+.horizontalMenu .topnav {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  font-size: 1em;
+}
+
+.verticalMenu .topnav,
+.verticalMenu .leftnav {
+    display: flex;
+    flex-direction: column; /* Делаем элементы вертикальными */
+    align-items: flex-start; /* Выравниваем по левому краю */
+    font-size: 1.2em; /* Используем размер leftnav */
+}
+
+
+.verticalMenu .topnav li,
+.verticalMenu .leftnav li {
+    width: 100%; /* Занимать всю ширину вертикального меню */
+}
+
+.verticalMenu .topnav a,
+.verticalMenu .leftnav a {
+    padding: 15px 10px; /* Увеличим отступы для лучшего вида */
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+.verticalMenu .submenu {
+    position: relative; /* Подменю отображаются как вложенные */
+    padding-left: 15px;
+    border: none;
+    background-color: transparent;
+    min-width: auto;
+}
+
+.verticalMenu .leftsubmenu {
+    padding-left: 15px;
+}
+
+/* Скрываем горизонтальные классы в вертикальном режиме */
+.verticalMenu .Vnav {
+    display: block; /* Показываем Vnav стили (если они вам нужны) */
+}
+
+.verticalMenu .nav {
+    display: none; /* Скрываем nav стили */
+}
+
+
+/* Стили для вертикального отображения (широкие десктопы) */
+@media (min-width: 1441px) {
+  .horizontalMenu {
+      display: none;
+  }
+  .verticalMenu {
+      display: block;
+      position: sticky; /* Или absolute, в зависимости от макета */
+      top: 0; /* Если sticky */
+      left: 0; /* Размещаем слева */
+      height: 100vh; /* На всю высоту экрана (опционально) */
+      z-index: 10; /* Чтобы не перекрывался контентом */
+  }
+  .verticalMenu .nav {
+      display: none;
+  }
+  .verticalMenu .Vnav {
+      display: block;
+  }
+  .verticalMenu .topnav {
+      display: none;
+  }
+  .verticalMenu .leftnav {
+      display: block;
+  }
+  .verticalMenu .submenu {
+      position: relative; /* Подменю внутри вертикального меню */
+      top: auto;
+      left: auto;
+      border: none;
+      background-color: transparent;
+      min-width: auto;
+  }
+  .verticalMenu .leftsubmenu {
+      padding-left: 15px;
+  }
+}
+
+/* Стили для мобильного меню */
+.mobileNavbar {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+.mobileNavbar .nav {
+  display: none;
+}
+
+.mobileNavbar .Vnav {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+
+.mobileNavbar .leftnav {
+  font-size: 1em;
+}
+
+.mobileNavbar .leftnav li {
+  border-bottom: 1px solid #ccc;
+  position: relative; /* Добавляем relative и для мобильного */
+}
+
+.mobileNavbar .leftnav li:last-child {
+  border-bottom: none;
+}
+
+.mobileNavbar .leftnav a {
+  padding: 15px;
+}
+
+.mobileNavbar .leftsubmenu {
+  padding-left: 15px;
+  position: relative;
+  top: auto;
+  left: auto;
+  border: none;
+  background-color: transparent;
+}
+
+@media (min-width: 769px) {
+  .mobileNavbar {
+      display: none !important; /* Скрываем на десктопах и планшетах */
+  }
+}

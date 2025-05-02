@@ -1,13 +1,5 @@
-import mysql from 'mysql2/promise';
+import pool from "@/app/lib/pool_db";
 
-// Создаем пул соединений с базой данных
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'root',
-  database: process.env.DB_NAME || 'garden_plots',
-  port: process.env.DB_PORT || 3306,
-});
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);

@@ -123,11 +123,11 @@
   .linker {
     flex-direction: row;
   }
-
+/*
   .headerVisible {
     display: none;
   }
-
+*/
   .vheaderVisible {
     display: flex;
     position: fixed;

@@ -1,4 +1,4 @@
-/* src/components/Navbar.module.css */
+/* src/components/Navbar.module.css 
 
 .navList {
   display: flex;
@@ -15,10 +15,7 @@
 
 .navItem :hover {
   color: blue;
-}/*
-.logout{
-  color: blue;
-}*/
+}
 .navList li:last-child{
   color: goldenrod;
 }
@@ -26,7 +23,7 @@
   stroke: forestgreen;
 }
 
-/* mobile */
+
 @media (max-width: 767px) {
   .navbar {
     position: absolute;
@@ -40,7 +37,8 @@
   .navList {
     padding: 0 20px;
     flex-direction: column;
-    /*width: 100%;*/
+
     align-items: start;
   }
 }
+*/

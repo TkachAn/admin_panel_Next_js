@@ -17,11 +17,11 @@ export async function POST(request) {
     }
     connection = await pool.getConnection();
     console.log('[/api/history POST] Подключение к базе данных успешно.');
-
+const hisnote = 'src/app/api/history/route.js'
     const [result] = await connection.execute(
-      `INSERT INTO history (plot_id, counter_id, owner_id)
-        VALUES (?, ?, ?)`,
-      [plot_id, counter_id, owner_id]
+      `INSERT INTO history (plot_id, counter_id, owner_id, note)
+        VALUES (?, ?, ?, ?)`,
+      [plot_id, counter_id, owner_id, hisnote]
     );
     console.log('[/api/history POST] Результат запроса INSERT INTO history:', result);
 

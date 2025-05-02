@@ -35,7 +35,8 @@ const menuItemsW = [
       },
     ],
   },
-  { label: 'ВЫХОД', href: '/auth' },
+  { label: 'ВЫХОД', href: '/api/auth/signout?callbackUrl=/auth' },
 ];
 
 export default menuItemsW;
+//{ label: 'ВЫХОД', href: '/api/auth/signout?callbackUrl=/auth' }, // Перенаправлення на головну після виходу

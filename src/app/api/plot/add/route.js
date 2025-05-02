@@ -1,4 +1,4 @@
-// src/api/addPlot/route.js
+// src/api/plot/add/route.js
 import pool from '@/app/lib/pool_db';
 import { NextResponse } from 'next/server';
  // Импортируем пул соединений
@@ -58,16 +58,17 @@ export async function POST(request) {
     const plotId = plotResult.insertId;
 
     // Создание записи в таблице history
+    const hisnote = 'src/api/plot/add/route.js'
     const [historyResult] = await connection.execute(
-      'INSERT INTO history (plot_id, owner_id, counter_id) VALUES (?, ?, ?)',
-      [plotId, defaultOwnerId, defaultCounterId]
+      'INSERT INTO history (plot_id, owner_id, counter_id, note) VALUES (?, ?, ?, ?)',
+      [plotId, defaultOwnerId, defaultCounterId, hisnote]
     );
     const historyId = historyResult.insertId;
-
+    const noterec = 'новый участок';
     // Создание записи в таблице readings
     await connection.execute(
-      'INSERT INTO readings (history_id, reading) VALUES (?, ?)',
-      [historyId, 0]
+      'INSERT INTO readings (history_id, reading, note) VALUES (?, ?, ?)',
+      [historyId, 0, noterec]
     );
 
     connection.release(); // Возвращаем соединение в пул

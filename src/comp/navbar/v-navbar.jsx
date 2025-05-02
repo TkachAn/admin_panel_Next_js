@@ -1,8 +1,8 @@
+/*
 //src/comp/navbar/navbar.jsx
 import React from "react";
 import Link from "next/link";
 import styles from "./v-navbar.module.css";
-import { LogOutIconButton } from "@/elem/buttons/IconButtons";
 import { LogoutButton } from "@/elem/buttons/buttons";
 //import styles from '../body/body.module.css';
 
@@ -33,6 +33,6 @@ const Vnavbar = ({ isOpen, closeMenu }) => {
   );
 };
 
-export default Vnavbar;
+export default Vnavbar;*/
 
 //<LogOutIconButton className={styles.logout}/>

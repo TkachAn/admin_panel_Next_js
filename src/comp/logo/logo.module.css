@@ -61,7 +61,7 @@
   bottom: 50%;
   left: 50px;
   transform: translate(20%, 50%); /* Центрируем по обеим осям */
-  font-size: 0.70rem;
+  font-size: 0.7rem;
   font-weight: bold;
   color: cornflowerblue;
 }
@@ -71,32 +71,27 @@
   bottom: 50%;
   left: 50px;
   transform: translate(50%, 50%); /* Центрируем по обеим осям */
-  font-size: 0.70rem;
+  font-size: 0.7rem;
   font-weight: bold;
-  color:blue
+  color: blue;
 }
 
-.logoFo{
+.logoFo {
   font-size: 10px;
-  line-height: 1.0;
- position: absolute;
- bottom:10%;
- left: 55px;
+  line-height: 1;
+  position: absolute;
+  bottom: 10%;
+  left: 55px;
 }
- .logoDo{
 
- } 
-
- .box{
+.box {
   width: 39px;
   height: 50px;
   overflow: hidden;
-
- }
-.pic{
-width: 100%;
-height: auto;
-object-fit:contain; /* Масштабирует картинку, чтобы полностью покрыть контейнер, обрезая, если нужно */
-object-position: center; /* Центрирует картинку внутри контейнера */
-
+}
+.pic {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Масштабирует картинку, чтобы полностью покрыть контейнер, обрезая, если нужно */
+  object-position: center; /* Центрирует картинку внутри контейнера */
 }

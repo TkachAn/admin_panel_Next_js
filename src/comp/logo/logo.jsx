@@ -1,3 +1,5 @@
+//src/comp/logo/logo.jsx
+
 import React from 'react';
 import styles from './logo.module.css';
 

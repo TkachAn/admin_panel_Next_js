@@ -1,14 +1,6 @@
 //src/app/api/plot/route.js
+import pool from '@/app/lib/pool_db';
 import { NextResponse } from 'next/server';
-import mysql from 'mysql2/promise';
-
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'root',
-  database: process.env.DB_NAME || 'garden',
-  port: process.env.DB_PORT || 3306,
-});
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -78,69 +70,3 @@ export async function GET(request) {
     }
   }
 }
-/*
-import { NextResponse } from 'next/server';
-import mysql from 'mysql2/promise';
-
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'root',
-  database: process.env.DB_NAME || 'garden',
-  port: process.env.DB_PORT || 3306,
-});
-
-export async function GET(request) {
-  const { searchParams } = new URL(request.url);
-  const plotNumber = searchParams.get('plot_number');
-
-  if (!plotNumber) {
-    return NextResponse.json({ message: 'Укажите номер участка' }, { status: 400 });
-  }
-
-  let connection;
-  try {
-    connection = await pool.getConnection();
-
-    // Получаем ID участка по номеру
-    const [plotRows] = await connection.execute(
-      'SELECT id FROM plots WHERE plot_number = ?',
-      [plotNumber]
-    );
-
-    if (plotRows.length === 0) {
-      return NextResponse.json({ message: 'Участок не найден' }, { status: 404 });
-    }
-
-    const plotID = plotRows[0].id;
-
-    // Используем представление p_o_h_readings для получения последней записи по участку
-    const [readingRows] = await connection.execute(
-      `SELECT * 
-       FROM p_o_h_readings 
-       WHERE plot_id = ? 
-       ORDER BY date DESC 
-       LIMIT 1`,
-      [plotID]
-    );
-
-    if (readingRows.length === 0) {
-        console.log(NextResponse.json({ plotID, counterID: null, readingData: null }))
-      return NextResponse.json({ plotID, counterID: null, readingData: null });
-    }
-
-    const counterID = readingRows[0].c_id;
-    const readingData = readingRows[0].reading;
-
-    return NextResponse.json({ plotID, counterID, readingData });
-
-  } catch (error) {
-    console.error('Ошибка при получении данных участка:', error);
-    return NextResponse.json({ message: 'Ошибка сервера' }, { status: 500 });
-  } finally {
-    if (connection) {
-      connection.release();
-    }
-  }
-}
-*/

@@ -1,14 +1,7 @@
 // /src/app/api/counters/route.js
+import pool from "@/app/lib/pool_db";
 import { NextResponse } from "next/server";
-import mysql from "mysql2/promise";
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "root",
-  database: process.env.DB_NAME || "garden",
-  port: process.env.DB_PORT || 3306,
-});
 
 export async function POST(request) {
   console.log("[/api/counters POST] Получен POST-запрос на создание счётчика.");
